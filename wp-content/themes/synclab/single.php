@@ -1,0 +1,23 @@
+<?php
+get_header();
+?>
+
+<main>
+    <section class="advertising">
+      <div class="container">
+		<?php
+		while ( have_posts() ) :
+			the_post();
+
+			get_template_part( 'template-parts/content', get_post_type() );
+
+		endwhile; // End of the loop.
+		?>
+
+        </div>
+    </section>
+</main><!-- #main -->
+
+<?php
+get_footer();
+?>
