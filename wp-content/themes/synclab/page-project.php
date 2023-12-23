@@ -157,7 +157,7 @@
                   'numberposts' => -1,
                   'category_name'    => $dt[2],
                   'orderby'     => 'date',
-                  'order'       => 'ASC',
+                  'order'       => 'DESC',
                   'post_type'   => 'post',
                   'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
               ) );

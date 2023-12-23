@@ -488,7 +488,7 @@
                 </div>
             </div>
             <div class="input-group has-validation">
-                <input type="text" class="modal__input form-control" name="usercompany" placeholder="Компания*" required aria-describedby="inputGroupPrepend" id="validationCustomUserCompany">
+                <input type="text" class="modal__input form-control" name="usercompany" placeholder="E-mail*" required aria-describedby="inputGroupPrepend" id="validationCustomUserCompany">
                 <div class="invalid-feedback">
                     Заполните обязательное поле, пожалуйста
                 </div>

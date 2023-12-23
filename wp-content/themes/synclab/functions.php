@@ -41,6 +41,7 @@
     if ( function_exists( 'add_image_size' ) ) {
         // Кадрирование изображения
         add_image_size( 'film-thumb', 283, 424, true );
+        add_image_size( 'single-img', 480, 600, true );
         add_image_size( 'other-thumb', 383, 254, true );
         add_image_size( 'news-thumb', 483, 389, true );
         add_image_size( 'singl-video', 1280, 720, true );
@@ -69,6 +70,28 @@
 }  
  // Окончание Функции хлебные крошки
 
+ //Функция хлебные крошки для отдельных архивов
+ function get_breadcrumb_archive() {
+    echo '<a href="'.home_url().'" class="advertising__link" rel="nofollow">Главная</a> &nbsp;&nbsp;/&nbsp;&nbsp;<a href="'.get_page_link(9).'">Наши работы</a> ';
+    if (is_category() || is_single()) {
+        echo "&nbsp;&nbsp;&#47;&nbsp;&nbsp;";
+        the_category(' &bull; ');
+            if (is_single()) {
+                echo " &nbsp;&nbsp;&#47;&nbsp;&nbsp; ";
+                the_title();
+            }
+    } elseif (is_page()) {
+        echo "&nbsp;&nbsp;&#47;&nbsp;&nbsp;";
+        echo the_title();
+    } elseif (is_search()) {
+        echo "&nbsp;&nbsp;;&nbsp;&nbsp;Search Results for... ";
+        echo '"<em>';
+        echo the_search_query();
+        echo '</em>"';
+    }
+}  
+ // Окончание Функции хлебные крошки крошки для отдельных архивов
+
 
  //Функция фильтра категории
     add_action( 'wp_ajax_myfilter', 'true_filter_function' ); 
@@ -80,7 +103,7 @@ function true_filter_function(){
         'category_name'    => $_POST[ 'name' ],
         'tag'          => $_POST[ 'tagname' ],
         'orderby'     => 'date',
-        'order'       => 'ASC',
+        'order'       => 'DESC',
         'post_type'   => 'post',
         'suppress_filters' => true,
 	);
@@ -154,11 +177,10 @@ function send_form_function_new(){
     $company=$_POST['usercompany'];
     $activity=$_POST['useractivity'];
     $country= $_POST['usercountry'];
-    $sity=$_POST['usersity'];
     $headerinmail = "Заявка на получение доступа к библиотеке с сайта SyncLab";
     $email_in = get_option('admin_email');
     // Формируем сообщение для отправки, в нём мы соберём всё, что ввели в форме
-    $mes = "$headerinmail \nИмя: $name \nФамилия: $lastname \nТелефон: $tel \nКомпания : $company \nДеятельность : $activity \nСтрана : $country \nГород : $sity";
+    $mes = "$headerinmail \nИмя: $name \nФамилия: $lastname \nТелефон: $tel \nE-mail : $company \nДеятельность : $activity \nСтрана : $country";
     // Пытаемся отправить письмо по заданному адресу
     // Если нужно, чтобы письма всё время уходили на ваш адрес — замените первую переменную $email на свой адрес электронной почты
     $send = wp_mail($email_in, $headerinmail, $mes, "Content-type:text/plain; charset = UTF-8\r\nFrom:$email");

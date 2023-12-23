@@ -120,8 +120,7 @@ $('#btn_send_main').click(function(){
           var usercompany = $ ('#validationCustomUserCompany').val();
           var useractivity = $ ('#validationCustomUserWork').val();
           var usercountry = $ ('#validationCustomUserCountry').val();
-          var usersity = $ ('#validationCustomUserCity').val();
-    if (username && surname && usertel && usercompany && useractivity && usercountry && usersity){
+    if (username && surname && usertel && usercompany && useractivity && usercountry){
           var fomatData = {                                       //Компануем данные запроса ajax
             action : 'sendformmainnew',
             name : username,
@@ -129,8 +128,7 @@ $('#btn_send_main').click(function(){
             usertel : usertel,
             usercompany : usercompany,
             useractivity : useractivity,
-            usercountry : usercountry,
-            usersity : usersity
+            usercountry : usercountry
         };
                 $.ajax({                                            //Делаем запрос ajax
               url : true_obj.ajaxurl, // обработчик

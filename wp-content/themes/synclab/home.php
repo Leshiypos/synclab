@@ -118,7 +118,7 @@
                         'numberposts' => 5,
                         'category_name'    => 'advertising',
                         'orderby'     => 'date',
-                        'order'       => 'ASC',
+                        'order'       => 'DESC',
                         'post_type'   => 'post',
                         'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
                     ) );
@@ -175,7 +175,7 @@
                         'numberposts' => 7,
                         'category_name'    => 'series_and_films',
                         'orderby'     => 'date',
-                        'order'       => 'ASC',
+                        'order'       => 'DESC',
                         'post_type'   => 'post',
                         'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
                     ) );
@@ -236,7 +236,7 @@
                         'numberposts' => 7,
                         'category_name'    => 'films',
                         'orderby'     => 'date',
-                        'order'       => 'ASC',
+                        'order'       => 'DESC',
                         'post_type'   => 'post',
                         'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
                     ) );
@@ -287,7 +287,7 @@
                         'numberposts' => 5,
                         'category_name'    => 'music_prodaction',
                         'orderby'     => 'date',
-                        'order'       => 'ASC',
+                        'order'       => 'DESC',
                         'post_type'   => 'post',
                         'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
                     ) );
@@ -353,7 +353,7 @@
                         'numberposts' => 25,
                         'category_name'    => 'music_libraries',
                         'orderby'     => 'date',
-                        'order'       => 'ASC',
+                        'order'       => 'DESC',
                         'post_type'   => 'post',
                         'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
                     ) );
@@ -534,7 +534,7 @@
                 </div>
             </div>
             <div class="input-group has-validation">
-                <input type="text" class="modal__input form-control" name="usercompany" placeholder="Компания*" required aria-describedby="inputGroupPrepend" id="validationCustomUserCompany">
+                <input type="text" class="modal__input form-control" name="usercompany" placeholder="E-mail*" required aria-describedby="inputGroupPrepend" id="validationCustomUserCompany">
                 <div class="invalid-feedback">
                     Заполните обязательное поле, пожалуйста
                 </div>
@@ -551,14 +551,6 @@
                     Заполните обязательное поле, пожалуйста
                 </div>
             </div>
-            <div class="input-group has-validation">
-                <input type="text" class="modal__input form-control" name="usersity" placeholder="Город*" required aria-describedby="inputGroupPrepend" id="validationCustomUserCity">
-                <div class="invalid-feedback">
-                    Заполните обязательное поле, пожалуйста
-                </div>
-            </div>
- 
-          
             <button type="submit" id="btn_send" class="modal__btn modal__btn-new button btn-reset">Отправить</button>
           </form>
           
@@ -585,7 +577,7 @@
                         'numberposts' => 15,
                         'category_name'    => 'news',
                         'orderby'     => 'date',
-                        'order'       => 'ASC',
+                        'order'       => 'DESC',
                         'post_type'   => 'post',
                         'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
                     ) );

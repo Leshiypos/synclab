@@ -13,7 +13,7 @@
             <?php while(have_posts()) : the_post(); ?>   
             
             <div class="advertising__bread-crumbs">
-            <?php get_breadcrumb(); ?>
+            <?php get_breadcrumb_archive(); ?>
             </div>
 
         <div class="advertising__flexbox">
@@ -97,11 +97,13 @@
 
           <?php $categories = get_the_category(); // Определяем данные категории для добавления карусиле
               $cat_slug = $categories[0]->slug; // ID самой категории
+              $countCat = $categories[0]->count;
           ?>
             <?php endwhile; ?>			
 		<?php endif; ?>
-        
+        <?php if ($countCat>1){ ?>
         <h2 class="advertising__subtitle">Похожие работы</h2>
+        <?php };?>
         
         <div class="advertising__swiper advertising__swiper_pl">
           <!-- Additional required wrapper -->
@@ -111,12 +113,14 @@
           <!-- Начало цикла постов Сериалы и кино-->
             <?php  
                 // параметры по умолчанию
+                    $id=get_the_ID();
                     $my_posts = get_posts( array(
                         'numberposts' => 8,
                         'category_name'    => $cat_slug,
                         'orderby'     => 'date',
-                        'order'       => 'ASC',
+                        'order'       => 'DESC',
                         'post_type'   => 'post',
+                        'exclude'     => $id,
                         'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
                     ) );
 

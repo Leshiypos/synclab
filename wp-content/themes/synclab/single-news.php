@@ -37,12 +37,14 @@
       <!-- Начало цикла постов Новости-->
       <?php  
                                         // параметры по умолчанию
+                    $id=get_the_ID();
                     $my_posts = get_posts( array(
                         'numberposts' => 8,
                         'category_name' => 'news',
                         'orderby'     => 'date',
-                        'order'       => 'ASC',
+                        'order'       => 'DESC',
                         'post_type'   => 'post',
+                        'exclude'     => $id,
                         'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
                     ) );
 
@@ -53,7 +55,7 @@
       <div class="news__slide swiper-slide">
         <a href="<?php the_permalink(); ?>" class="news__block">
             <div class="news__date"><?php echo get_the_date( 'j F Y' ); ?></div>
-            <img src="<?php the_post_thumbnail_url(); ?>" alt="photo">
+            <img src="<?php the_post_thumbnail_url('news-thumb'); ?>" alt="photo">
             <div class="news__text"><?php the_title(); ?></div>
         </a>
       </div>

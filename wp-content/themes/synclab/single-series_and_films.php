@@ -13,7 +13,7 @@
             <?php while(have_posts()) : the_post(); ?>   
             
             <div class="advertising__bread-crumbs">
-            <?php get_breadcrumb(); ?>
+            <?php get_breadcrumb_archive(); ?>
             </div>
 
         <div class="advertising__flexbox">
@@ -89,7 +89,7 @@
                   </video>
             </div>
             <?php } else {
-                  if (has_post_thumbnail()){?><img class="advertising__video singl__img" src="<?php echo the_post_thumbnail_url(); ?>" style="max-height:600px" alt="photo"><?php } 
+                  if (has_post_thumbnail()){?><img class="advertising__video singl__img" src="<?php echo the_post_thumbnail_url('single-img'); ?>" style="max-height:600px" alt="photo"><?php } 
              }?>
           <!-- Окончание, если есть видео - выводим видео, если видео нет выводим превью -->
    
@@ -110,12 +110,14 @@
           <!-- Начало цикла постов Сериалы и кино-->
             <?php  
                 // параметры по умолчанию
+                    $id=get_the_ID();
                     $my_posts = get_posts( array(
                         'numberposts' => 8,
                         'category_name'    => $cat_slug,
                         'orderby'     => 'date',
-                        'order'       => 'ASC',
+                        'order'       => 'DESC',
                         'post_type'   => 'post',
+                        'exclude'     => $id,
                         'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
                     ) );
 

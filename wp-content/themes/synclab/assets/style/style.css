@@ -1137,4 +1137,7 @@ h3 {
   display: block;
   margin-right: auto;
   margin-left: auto;
+}
+.singl__img {
+  margin-right: 0 !important;
 }/*# sourceMappingURL=style.css.map */
